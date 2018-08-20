@@ -72,6 +72,11 @@ function smartReplace($content, $replacement, $bold=false)
     return implode(" ", $string);
 }
 
+/* String to Title Case */
+
+// Credit to GitHub user: jsnmrs - https://gist.github.com/jsnmrs
+// https://gist.github.com/jsnmrs/2936964
+
 function strtotitlex($title)
 {
     $smallwordsarray = array(
@@ -90,7 +95,12 @@ function strtotitlex($title)
     return $newtitle;
 }
 
+
 /* Content Spinner Class */
+
+// Credit to GitHub user: ghprod - https://gist.github.com/ghprod
+// https://gist.github.com/ghprod/13e0b1c88d59040dde10
+
 class Spinner{
     # Detects whether to use the nested or flat version of the spinner (costs some speed)
     public static function detect($text, $seedPageName = true, $openingConstruct = '{{', $closingConstruct = '}}', $separator = '|'){
