@@ -19,7 +19,7 @@ $stateList = array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' 
 <body>
     <div id="wrapper">
         <div id="header">
-            <div id="spinner"></div>
+            <div id="spinner"><svg id="header-spinner" width="32px" height="32px" viewBox="0 0 128 128"><rect x="0" y="0" width="100%" height="100%" fill="transparent" /><g><path  fill="#0f75bc" fill-opacity="1" d="M109.25 55.5h-36l12-12a29.54 29.54 0 0 0-49.53 12H18.75A46.04 46.04 0 0 1 96.9 31.84l12.35-12.34v36zm-90.5 17h36l-12 12a29.54 29.54 0 0 0 49.53-12h16.97A46.04 46.04 0 0 1 31.1 96.16L18.74 108.5v-36z"/></g></svg></div>
             <h1 id="main-title">Spin Viewer</h1>
         </div>
 
@@ -69,7 +69,10 @@ $stateList = array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' 
                     </div>
                     <textarea name="textbox" id="textbox" placeholder="Paste spin text(HTML) here." autocomplete="nope" onfocus="this.select();" ></textarea>
                     <div class="text-right">
-                        <button type="submit" id="submit" name="submit">Spin It!</button>
+                        <button type="submit" id="submit" name="submit">
+                    
+                        <svg id="btn-spinner" width="32px" height="32px" viewBox="0 0 128 128"><rect x="0" y="0" width="100%" height="100%" fill="transparent" /><g><path  fill="#ffffff" fill-opacity="1" d="M109.25 55.5h-36l12-12a29.54 29.54 0 0 0-49.53 12H18.75A46.04 46.04 0 0 1 96.9 31.84l12.35-12.34v36zm-90.5 17h36l-12 12a29.54 29.54 0 0 0 49.53-12h16.97A46.04 46.04 0 0 1 31.1 96.16L18.74 108.5v-36z"/></g></svg>
+                            <div id="btn-text">Spin It!</div></button>
                     </div>
                 </form>
                 <div class="clear"></div>
@@ -90,8 +93,10 @@ $stateList = array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' 
         const button = document.getElementById('submit');
         // output div
         const output = document.getElementById('output');
-        // spinner icon
-        const spinner = document.getElementById('spinner');
+        // header spinner icon
+        const headerSpinner = document.getElementById('header-spinner');
+        // button spinner icon
+        const btnSpinner = document.getElementById('btn-spinner');
         // Textbox input
         const textbox = document.getElementById('textbox');
         // 'Bracket type' radio buttons
@@ -118,7 +123,10 @@ $stateList = array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' 
             e.preventDefault();
 
             // Spin the spinner icon
-            spinner.className = (spinner.className == 'spin' ? '' : 'spin');
+            const spinHeaderAttr = (headerSpinner.getAttribute('class') == 'spin' ? '' : 'spin');
+            const spinBtnAttr = (btnSpinner.getAttribute('class') == 'spin' ? '' : 'spin');
+            headerSpinner.setAttribute('class', spinHeaderAttr);
+            btnSpinner.setAttribute('class', spinBtnAttr);
 
             // Get the spun content from the textbox
             const spinText = (textbox.value !== '' ? textbox.value : false);

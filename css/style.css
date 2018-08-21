@@ -58,7 +58,7 @@ body {
 
 #header {
     background-color: #fff;
-    padding: 5px 15px;
+    padding: 12px 15px;
     text-align: center;
     border-bottom: 1px solid rgba(0,0,0,0.125);
     display: -webkit-box;
@@ -67,23 +67,18 @@ body {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    align-items: center;
 }
 
 #main-title {
-    display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
-    line-height: 50px;
-    min-height: 50px;
     margin: 0;
     margin-left: 8px;
     color: #0f75bc;
 }
 
-#spinner {
-    width: 50px;
-    height: 50px;
-    background: url(spinner_icon1.png) no-repeat;
+#header-spinner {
     -webkit-transform: rotateZ(0deg);
     -ms-transform: rotate(0deg);
     transform: rotateZ(0deg);
@@ -92,10 +87,26 @@ body {
     transition: all 5s cubic-bezier(0.13, 0.07, 0.25, 1);
 }
 
-#spinner.spin {
+#header-spinner.spin {
     -webkit-transform: rotateZ(3600deg);
     -ms-transform: rotate(3600deg);
     transform: rotateZ(3600deg);
+}
+
+#btn-spinner {
+    display: inline-block;
+    -webkit-transform: rotateZ(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotateZ(0deg);
+    -webkit-transition: all 5s cubic-bezier(0.13, 0.07, 0.25, 1);
+    -o-transition: all 5s cubic-bezier(0.13, 0.07, 0.25, 1);
+    transition: all 5s cubic-bezier(0.13, 0.07, 0.25, 1); 
+}
+
+#btn-spinner.spin {
+    -webkit-transform: rotateZ(3600deg);
+    -ms-transform: rotate(3600deg);
+    transform: rotateZ(3600deg); 
 }
 
 .top-text {
@@ -143,21 +154,22 @@ body {
 .text-right { text-align: right; }
 
 #submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float:right;
     margin-top: 15px;
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-    display: inline-block;
     font-weight: 400;
-    text-align: center;
     white-space: nowrap;
-    vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     border: 1px solid transparent;
-    padding: .2em .8em;
+    padding: .2em .4em;
     font-size: 1.6em;
     line-height: 1.7;
     border-radius: .25em;
@@ -166,6 +178,9 @@ body {
     -o-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+#btn-text {
+    padding-left: 0.2em
 }
 
 #submit:hover, #submit:active {
